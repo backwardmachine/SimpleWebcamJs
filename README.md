@@ -3,7 +3,7 @@ A simple webcam video and snapshot tool using HTML, Javascript. Works on all bro
 
 Use it to place a video and camera snaps on your webpage, in your program, or even use it for a home webcam. 
 
-##Setup
+##Setting it up
 
 Setup is simple. Create the container.
 ```
