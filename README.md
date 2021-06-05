@@ -3,7 +3,7 @@ A simple webcam video and snapshot tool using HTML, Javascript.
 
 Use it to place a video and image snapshots on your webpage, in your program, or simply on your desktop browser. 
 
-Place scjs.js before the closing </body> tag.
+Place scjs.js before the closing `</body>` tag.
 ```
 <script src="scjs.js"></script>
 ```
