@@ -3,8 +3,7 @@ A simple webcam video and snapshot tool using HTML, Javascript. Works on all bro
 
 Use it to place a video and camera snaps on your webpage, in your program, or even use it for a home webcam. 
 
-##Setting it up
-
+# Setting it up
 Setup is simple. Create the container.
 ```
 <div id="scjs">
@@ -32,3 +31,58 @@ And change the parameters...
   };
 </script>
 ```
+
+# The code
+The main access to video streaming media is `__scjs__forward__media()` and is accessed when you press the play button.
+```
+function __scjs__forward__media() // IO setup
+{
+  __vars = __cfg;
+  navigator.mediaDevices.getUserMedia(
+    {
+      video:
+      {
+        width  : __vars.video__width,
+        height : __vars.video__height
+      }
+    }
+  )
+  .then  ( __scjs__stream )
+  .catch ( __scjs__stream__error );
+}
+```
+
+The built in functions will run `__scjs__stream` continually unless an error is intercepted.
+```
+function __scjs__stream ( __IOdata ) // IO video streaming
+{
+  var video = document.querySelector( 'video' );
+  video.srcObject = __IOdata;
+  video.onloadedmetadata = function(e)
+  {
+    video.play();
+  };
+}
+```
+
+Once the play button fires, our intervals are set up in `__scjs__forward`
+```
+document.getElementById( "scjs__button" )
+  .addEventListener( "click", __scjs__forward );
+  
+function __scjs__forward( e ) // setup intervals
+{
+  for ( let interval of __scjs__fwdintervals )
+    clearInterval( interval.id );
+
+  __scjs__forward__on = __scjs__forward__on ? 0 : 1;
+
+  for ( let interval of __scjs__fwdintervals )
+  {
+    interval.fn();
+    interval.id = setInterval( interval.fn, interval.time );
+  }
+}
+```
+
+And that's all there is to it.
