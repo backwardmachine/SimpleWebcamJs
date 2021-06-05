@@ -5,7 +5,7 @@ Use it to place a video and camera snaps on your webpage, in your program, or ev
 
 # Setting it up
 Setup is simple. Create the container.
-```
+```html
 <div id="scjs">
   <video id="scjs__video"></video>
   <div id="scjs__play">
@@ -16,12 +16,12 @@ Setup is simple. Create the container.
 ```
 
 Place scjs.js before the closing `</body>` tag to include the bulk of the code.
-```
+```html
 <script src="scjs.js"></script>
 ```
 
 And change the parameters...
-```
+```js
 <script language="Javascript">
   var __cfg = {
     video__width  : 200,
@@ -34,7 +34,7 @@ And change the parameters...
 
 # The code
 The main access to video streaming media is `__scjs__forward__media()` and is accessed when you press the play button.
-```
+```js
 function __scjs__forward__media() // IO setup
 {
   __vars = __cfg;
@@ -53,7 +53,7 @@ function __scjs__forward__media() // IO setup
 ```
 
 The built in functions will run `__scjs__stream` continually unless an error is intercepted.
-```
+```js
 function __scjs__stream ( __IOdata ) // IO video streaming
 {
   var video = document.querySelector( 'video' );
@@ -66,7 +66,7 @@ function __scjs__stream ( __IOdata ) // IO video streaming
 ```
 
 Once the play button fires, our intervals are set up in `__scjs__forward`
-```
+```js
 document.getElementById( "scjs__button" )
   .addEventListener( "click", __scjs__forward );
   
