@@ -9,7 +9,6 @@ Setup is simple. Create the container.
   <video id="scjs__video"></video>
   <div id="scjs__play">
     <canvas id="scjs__image"></canvas>
-
   </div>
   <div id="scjs__forward"><input type="button" id="scjs__button" value="Play"></div>
 </div>
