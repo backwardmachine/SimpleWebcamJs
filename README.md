@@ -1,7 +1,7 @@
 # SimpleWebcamJs
-A simple webcam video and snapshot tool using HTML, Javascript.  
+A simple webcam video and snapshot tool using HTML, Javascript. Works on all browsers. Displays both the video and consecutive image snapshots in the browser screen.
 
-Use it to place a video and image snapshots on your webpage, in your program, or simply on your desktop browser. 
+Use it to place a video and camera snaps on your webpage, in your program, or even use it for a home webcam. 
 
 Place scjs.js before the closing `</body>` tag.
 ```
